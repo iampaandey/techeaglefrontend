@@ -39,7 +39,7 @@ const LoginForm = ({ onRegisterClick }) => {
          {alert.message && (
         <AlertBox type={alert.type} message={alert.message} onClose={() => setAlert({ type: '', message: '' })} />
       )}
-        <div className="mt-8 bg-gray-100 flex items-center justify-center font-sans p-4">
+        <div className="mt-8 flex items-center justify-center font-sans p-4">
             <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
                 <h2 className="text-2xl font-semibold mb-6 text-center">Login</h2>
                 <form>
