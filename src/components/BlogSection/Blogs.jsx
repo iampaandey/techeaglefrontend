@@ -28,7 +28,7 @@ const Blogs = () => {
       <div className="main-Section-blogs m-4">
       {
         blogData?.map((e)=>{
-         return <BlogCard key={e?._id} username={e?.author.username} title={e?.title} content={e?.content.data} description={e?.description} timestamp={e?.createdAt}   />
+         return <BlogCard key={e?._id} image={e?.image} video={e?.video} username={e?.author.username} location={e?.location} title={e?.title}  description={e?.description} timestamp={e?.createdAt}   />
         })
       }
       </div>

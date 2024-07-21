@@ -12,6 +12,16 @@ export const getBlogsThunk=createAsyncThunk("/getBlogs", async(_,{rejectWithValu
         return rejectWithValue(error.response?.data)
      }
 })
+export const addBlogThunk=createAsyncThunk("/addBlogs", async({formData, navigate},{rejectWithValue})=>{
+    try {
+       const response= await api.addBlogApi(formData);
+       if(response.status===200)navigate('/')
+       return response.data;
+    } catch (error) {
+       console.log(error);
+       return rejectWithValue(error.response?.data)
+    }
+})
 
 
 const blogSlice=createSlice({
@@ -39,6 +49,7 @@ const blogSlice=createSlice({
             state.loading = false;
             state.error = action.payload;
         })
+        
     }
 })
 

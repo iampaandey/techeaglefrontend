@@ -15,9 +15,20 @@ export const getFriends=()=>{
     return API.get('/friends');
 }
 
+
 export const getmyfriends=(formData)=>{
     const token = localStorage?.getItem('token');  
     return API.post('/myfriends',formData,{
+        headers: {
+            Authorization: token ? `${token}` : '',
+            "Content-Type": 'application/json'
+          },
+          
+    })
+}
+export const addBlogApi=(formData)=>{
+    const token = localStorage?.getItem('token');  
+    return API.post('/blog',formData,{
         headers: {
             Authorization: token ? `${token}` : '',
             "Content-Type": 'application/json'
