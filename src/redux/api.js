@@ -19,6 +19,7 @@ export const getFriends=()=>{
     return API.get('/friends');
 }
 
+
 export const getmyfriends=()=>{
     const token = localStorage?.getItem('token');  
     return API.get('/myfriends',{
@@ -29,6 +30,16 @@ export const getmyfriends=()=>{
           
     })
 }
+
+export const addBlogApi=(formData)=>{
+    const token = localStorage?.getItem('token');  
+    return API.post('/blog',formData,{
+        headers: {
+            Authorization: token ? `${token}` : '',
+            "Content-Type": 'application/json'
+          },
+          
+
 
 export const getmyuserinfo=()=>{
     const token = localStorage?.getItem('token');  
@@ -47,5 +58,6 @@ export const addfriend=(formData)=>{
             Authorization: token ? `${token}` : '',
             "Content-Type": 'application/json'
           },       
+
     })
 }
