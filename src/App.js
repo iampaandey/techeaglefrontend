@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import { Route, Router, Routes, Switch } from 'react-router-dom';
 import './App.css';
+import LoginForm from './components/authenticationSection/LoginForm';
+import RegistrationForm from './components/authenticationSection/RegistrationForm';
+import BlogForm from './components/BlogSection/BlogForm';
+import Blogs from './components/BlogSection/Blogs';
+import FriendsSection from './components/friendsSection/FriendsSection';
+import TabSection from './components/TabSection';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen flex flex-col">
+     <TabSection/>
+      <Routes>
+     <Route path='/' element={<Blogs/>}  />
+     <Route path='/blog' element={<BlogForm/>} />
+     <Route path='/friend' element={<FriendsSection/>} />
+     <Route path='/login' element={<LoginForm/>} />
+     <Route path='/register' element={<RegistrationForm/>}/>
+     </Routes>
     </div>
   );
 }
